@@ -530,7 +530,7 @@
         // 初始化页面
         initializeTable();
 
- window.difyChatbotConfig = {
+window.difyChatbotConfig = {
   token: 'tNcfwW3ghBxTkShh',
   systemVariables: {
     // user_id: 'YOU CAN DEFINE USER ID HERE',
@@ -540,22 +540,34 @@
     // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
     // name: 'YOU CAN DEFINE USER NAME HERE',
   },
- }
+}
 </script>
-<script
- src="https://udify.app/embed.min.js"
- id="tNcfwW3ghBxTkShh"
- defer>
-</script>
+<script src="https://udify.app/embed.min.js" id="tNcfwW3ghBxTkShh" defer></script>
 <style>
   #dify-chatbot-bubble-button {
     background-color: #1C64F2 !important;
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 24px !important;
   }
+  
   #dify-chatbot-bubble-window {
     width: 24rem !important;
     height: 40rem !important;
+    position: fixed !important;
+    right: 24px !important;
+    bottom: 80px !important;
   }
-</style> 
+  
+  @media (max-width: 768px) {
+    #dify-chatbot-bubble-window {
+      width: 100% !important;
+      height: 70vh !important;
+      right: 0 !important;
+      bottom: 80px !important;
+    }
+  }
+</style>
     </script>
     
 </body>
