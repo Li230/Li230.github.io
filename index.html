@@ -1,70 +1,112 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>爱心 - 小欣</title>
-<style>
-  body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #fde3e7;
-    margin: 0;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>给小欣</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  .heart {
-    position: relative;
-    width: 200px;
-    height: 200px;
-    background-color: #ff4b5c;
-    transform: rotate(-45deg);
-    animation: heartbeat 1s infinite;
-    z-index: 0; /* 确保心形图层在文本之下 */
-  }
+    body {
+      height: 100vh;
+      background: linear-gradient(135deg, #fff0f7, #ffe6f2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+      overflow: hidden;
+    }
 
-  .heart:before,
-  .heart:after {
-    content: "";
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    background-color: inherit;
-    border-radius: 50%;
-  }
+    /* 整体内容容器：垂直居中 */
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  .heart:after {
-    left: 100px;
-    top: 0;
-  }
+    /* 爱心容器 */
+    .heart-container {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      animation: heartbeat 1s ease-in-out infinite alternate;
+    }
 
-  .text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    color: #ffffff;
-    font-size: 20px; /* 增大字体大小 */
-    font-weight: bold; /* 文字加粗 */
-    text-align: center;
-    z-index: 1; /* 确保文本在最上层 */
-  }
+    .heart {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      height: 180px;
+      background: #ff4d7a;
+      transform: rotate(-45deg);
+    }
 
-  @keyframes heartbeat {
-    0%, 100% {transform: scale(1) rotate(-45deg);}
-    50% {transform: scale(1.1) rotate(-45deg);}
-  }
-</style>
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      background: #ff4d7a;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -90px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 90px;
+    }
+
+    /* 中央文字：黑色、水平、居中 */
+    .name {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: white; /* 改为黑色 */
+      font-size: 20px;
+      font-weight: normal;
+      z-index: 2;
+      white-space: nowrap;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.15); }
+    }
+
+    /* 署名：在爱心下方 20px */
+    .signature {
+      margin-top: 200px;
+      color: #888;
+      font-style: italic;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="heart">
-  <div class="text">小欣</div>
-</div>
+  <div class="container">
+    <!-- 跳动的爱心 + 居中名字 -->
+    <div class="heart-container">
+      <div class="heart"></div>
+      <div class="name">小欣</div>
+    </div>
+
+    <!-- 紧跟在爱心下方 20px -->
+    <div class="signature">—— 想你的人</div>
+  </div>
 
 </body>
 </html>
+
+
