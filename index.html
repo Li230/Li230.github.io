@@ -1,76 +1,70 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>❤️ 小欣</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>爱心 - 小欣</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fde3e7;
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(145deg, #fff0f5, #ffe6f2);
-      font-family: "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
-      overflow: hidden;
-    }
+  .heart {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #ff4b5c;
+    transform: rotate(-45deg);
+    animation: heartbeat 1s infinite;
+    z-index: 0; /* 确保心形图层在文本之下 */
+  }
 
-    .heart-container {
-      position: relative;
-      font-size: 60px;
-      animation: heartbeat 0.9s ease-in-out infinite alternate;
-      transform-origin: center;
-      transform: scale(6);
-      filter: drop-shadow(0 6px 16px rgba(255, 77, 122, 0.25));
-    }
+  .heart:before,
+  .heart:after {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: inherit;
+    border-radius: 50%;
+  }
 
-    .heart-icon {
-      color: #ff4d7a;
-      text-align: center;
-      line-height: 1;
-    }
+  .heart:after {
+    left: 100px;
+    top: 0;
+  }
 
-    .heart-text {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: black;
-      font-weight: normal;        /* 不加粗 */
-      font-size: 0.1em;          /* 缩小但清晰（约 9.6px 基础，放大后仍可读）*/
-      white-space: nowrap;
-      pointer-events: none;
-      text-shadow: 0 0.5px 1px rgba(255, 255, 255, 0.6); /* 轻微白边增强对比 */
-    }
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    color: #ffffff;
+    font-size: 20px; /* 增大字体大小 */
+    font-weight: bold; /* 文字加粗 */
+    text-align: center;
+    z-index: 1; /* 确保文本在最上层 */
+  }
 
-    @keyframes heartbeat {
-      0%   { transform: scale(6); }
-      100% { transform: scale(7.8); }
-    }
-
-    /* 小屏设备自动缩小，避免溢出 */
-    @media (max-width: 600px) {
-      .heart-container {
-        transform: scale(4.5);
-      }
-      @keyframes heartbeat {
-        100% { transform: scale(5.85); }
-      }
-    }
-  </style>
+  @keyframes heartbeat {
+    0%, 100% {transform: scale(1) rotate(-45deg);}
+    50% {transform: scale(1.1) rotate(-45deg);}
+  }
+</style>
 </head>
 <body>
-  <div class="heart-container" role="img" aria-label="一颗跳动的爱心，中间写着‘小欣’">
-    <div class="heart-icon">❤</div>
-    <div class="heart-text">小欣</div>
-  </div>
+
+<div class="heart">
+  <div class="text">小欣</div>
+</div>
+
 </body>
 </html>
-
-
